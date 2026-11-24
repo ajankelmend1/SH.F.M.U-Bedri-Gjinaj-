@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAFE – Ndihmë në emergjencë dhe mbështetje për viktimat e dhunës në Kosovë</title>
+<meta name="description" content="SAFE është platformë informative për siguri personale, emergjenca dhe mbështetje për personat që përjetojnë dhunë në Kosovë. Numrat emergjentë, format e dhunës dhe si të kërkoni ndihmë.">
+<meta name="keywords" content="Kosovë, emergjencë, 112, dhuna në familje, viktimat e dhunës, ndihmë, policia, mbrojtje">
+<meta name="robots" content="index, follow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#17243A">
+<meta name="format-detection" content="telephone=yes">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sq_AL">
+<meta property="og:title" content="SAFE – Nuk je vetëm.">
+<meta property="og:description" content="Numrat e emergjencës dhe informacion për mbështetje ndaj dhunës në Kosovë. Nëse je në rrezik të menjëhershëm, telefono 112.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317243A'/%3E%3Cpath d='M16 6l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V9z' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#F8F8F6;
+  --surface:#FFFFFF;
+  --navy:#17243A;
+  --navy-2:#22324D;
+  --red:#C62828;
+  --red-dark:#A61F1F;
+  --red-soft:#FCEDED;
+  --muted:#718096;
+  --text:#17243A;
+  --text-2:#4A5568;
+  --border:#E6E6E1;
+  --border-2:#D9D9D3;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow:0 1px 2px rgba(23,36,58,.05),0 4px 16px rgba(23,36,58,.05);
+  --shadow-lg:0 2px 4px rgba(23,36,58,.06),0 12px 32px rgba(23,36,58,.09);
+  --focus:0 0 0 3px #fff,0 0 0 5px #1F5FBF;
+  --max:1120px;
+  --header-h:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img,svg{display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+@media (min-width:720px){.wrap{padding:0 28px}}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+:focus-visible{outline:none;box-shadow:var(--focus);border-radius:8px}
+
+/* ---------- Header ---------- */
+.header{position:sticky;top:0;z-index:50;background:rgba(248,248,246,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.header.scrolled{border-bottom-color:var(--border)}
+.header-in{height:var(--header-h);display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:20px;letter-spacing:.08em;color:var(--navy);margin-right:auto}
+.brand-mark{width:32px;height:32px;border-radius:9px;background:var(--navy);display:grid;place-items:center}
+.nav{display:none}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+.nav a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:500;color:var(--text-2);transition:background .15s,color .15s}
+.nav a:hover{background:rgba(23,36,58,.06);color:var(--navy)}
+.nav a.active{color:var(--navy);background:rgba(23,36,58,.06)}
+@media (min-width:920px){.nav{display:block}.menu-btn{display:none!important}}
+
+.btn{
+  -webkit-appearance:none;appearance:none;font:inherit;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:12px 22px;border-radius:12px;border:1px solid transparent;
+  font-weight:600;font-size:16px;line-height:1.2;text-decoration:none;
+  transition:background .18s var(--ease),border-color .18s,color .18s,transform .12s var(--ease),box-shadow .18s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(.98)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-ghost{background:var(--surface);color:var(--navy);border-color:var(--border-2)}
+.btn-ghost:hover{border-color:var(--navy);background:#fff}
+
+.exit-btn{min-height:40px;padding:8px 14px;font-size:14px;border-radius:10px;background:var(--surface);color:var(--red);border:1.5px solid var(--red)}
+.exit-btn:hover{background:var(--red);color:#fff}
+.menu-btn{width:44px;height:44px;border-radius:10px;border:1px solid var(--border-2);background:var(--surface);display:inline-grid;place-items:center;cursor:pointer;color:var(--navy);padding:0}
+.menu-btn:hover{border-color:var(--navy)}
+.menu-btn .bar{transition:transform .25s var(--ease),opacity .2s;transform-origin:center}
+.menu-btn[aria-expanded="true"] .b1{transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .b2{opacity:0}
+.menu-btn[aria-expanded="true"] .b3{transform:translateY(-5px) rotate(-45deg)}
+
+.mobile-nav{position:fixed;inset:var(--header-h) 0 auto 0;z-index:49;background:var(--bg);border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg);padding:8px 16px 20px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility 0s .2s}
+.mobile-nav.open{opacity:1;transform:none;visibility:visible;transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.mobile-nav ul{list-style:none;margin:0;padding:0}
+.mobile-nav a{display:flex;align-items:center;justify-content:space-between;padding:15px 4px;border-bottom:1px solid var(--border);text-decoration:none;font-weight:600;font-size:18px}
+.mobile-nav .btn{width:100%;margin-top:16px}
+@media (min-width:920px){.mobile-nav{display:none}}
+
+/* ---------- Alert bar ---------- */
+.alert{background:var(--navy);color:#fff;font-size:15px}
+.alert .wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding-top:10px;padding-bottom:10px;text-align:center}
+.alert a{color:#fff;font-weight:700;text-underline-offset:3px}
+.pulse{width:8px;height:8px;border-radius:50%;background:#FF6B6B;flex:none;box-shadow:0 0 0 0 rgba(255,107,107,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,107,107,.55)}70%{box-shadow:0 0 0 8px rgba(255,107,107,0)}100%{box-shadow:0 0 0 0 rgba(255,107,107,0)}}
+
+/* ---------- Hero ---------- */
+.hero{padding:56px 0 48px}
+@media (min-width:720px){.hero{padding:96px 0 80px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(44px,11vw,96px);font-weight:800;letter-spacing:-.035em;margin:18px 0 20px;color:var(--navy)}
+.hero h1 span{color:var(--red)}
+.hero .lead{font-size:clamp(18px,2.3vw,22px);color:var(--text-2);max-width:640px;line-height:1.55}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-cta .btn{flex:1 1 220px}
+@media (min-width:560px){.hero-cta .btn{flex:0 0 auto}}
+.danger-note{margin-top:28px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:var(--red-soft);border:1px solid #F4CFCF;color:#7A1616;font-weight:500;max-width:640px}
+.danger-note a{color:var(--red);font-weight:800;text-decoration:none;font-size:19px;white-space:nowrap}
+.danger-note a:hover{text-decoration:underline}
+
+/* ---------- Sections ---------- */
+section{padding:64px 0}
+@media (min-width:720px){section{padding:96px 0}}
+.sec-head{max-width:720px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,5vw,44px);font-weight:800;color:var(--navy);margin:10px 0 14px}
+.sec-head p{color:var(--text-2);font-size:18px}
+.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.alt .card{background:var(--bg)}
+
+/* ---------- Emergency ---------- */
+.em-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.em-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.em-grid{grid-template-columns:repeat(3,1fr)}}
+.em{display:flex;flex-direction:column;padding:22px;transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s}
+.em:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--border-2)}
+.em-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#EEF1F6;color:var(--navy);flex:none}
+.ico.red{background:var(--red-soft);color:var(--red)}
+.tag{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.em-num{font-size:44px;font-weight:800;letter-spacing:-.03em;color:var(--navy);line-height:1;text-decoration:none;font-variant-numeric:tabular-nums}
+.em h3{font-size:18px;margin:10px 0 6px}
+.em p{color:var(--text-2);font-size:15px;margin-bottom:18px;flex:1}
+.em .btn{width:100%}
+.em-primary,.alt .em-primary{grid-column:1/-1;background:var(--navy);border-color:var(--navy);color:#fff;padding:26px}
+.em-primary .em-num{color:#fff;font-size:clamp(64px,16vw,104px)}
+.em-primary h3{font-size:22px}
+.em-primary p{color:#C9D1DE;font-size:16px;max-width:560px}
+.em-primary .ico{background:rgba(255,255,255,.1);color:#fff}
+.em-primary .tag{color:#9FB0C8}
+@media (min-width:720px){
+  .em-primary{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding:36px}
+  .em-primary .btn{width:auto;min-width:240px;min-height:56px;font-size:18px}
+  .em-primary .em-top{grid-column:1/-1;margin-bottom:0}
+}
+.em-support,.alt .em-support{grid-column:1/-1;border-color:#F0CACA;background:var(--surface)}
+.em-support .em-num{font-size:clamp(34px,7vw,44px);color:var(--red)}
+@media (min-width:720px){
+  .em-support{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding:28px}
+  .em-support .btn{width:auto;min-width:240px}
+  .em-support .em-top{grid-column:1/-1;margin-bottom:0}
+}
+.verify{margin-top:18px;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-2);padding:14px 16px;border:1px dashed var(--border-2);border-radius:12px;background:var(--surface)}
+.verify svg{flex:none;margin-top:2px;color:var(--muted)}
+
+/* ---------- Violence types ---------- */
+.v-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.v-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.v-grid{grid-template-columns:repeat(3,1fr)}}
+.v{padding:24px}
+.v h3{font-size:19px;margin:16px 0 8px}
+.v p{color:var(--text-2);font-size:16px}
+.callout{margin-top:24px;padding:24px;border-radius:var(--radius);background:var(--navy);color:#fff;display:flex;gap:16px;align-items:flex-start}
+.callout h3{font-size:20px;margin-bottom:6px}
+.callout p{color:#C9D1DE}
+.callout .ico{background:rgba(255,255,255,.1);color:#fff}
+
+/* ---------- Steps ---------- */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:22px;align-items:start}
+.step-n{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:18px;background:#EEF1F6;color:var(--navy);font-variant-numeric:tabular-nums}
+.step:first-child .step-n{background:var(--red);color:#fff}
+.step h3{font-size:18px;letter-spacing:-.01em;margin:2px 0 6px}
+.step p{color:var(--text-2);font-size:16px}
+.step a{color:var(--red);font-weight:700}
+.disclaimer{margin-top:20px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.disclaimer svg{flex:none;margin-top:3px}
+
+/* ---------- Support ---------- */
+.s-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:720px){.s-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.s-grid{grid-template-columns:repeat(3,1fr)}}
+.s{padding:24px;display:flex;flex-direction:column}
+.s h3{font-size:18px;margin:16px 0 8px}
+.s p{color:var(--text-2);font-size:16px;flex:1}
+.s .meta{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:15px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.s .meta a{font-weight:700;color:var(--navy);text-underline-offset:3px}
+.s .meta a.call{color:var(--red);text-decoration:none}
+.s .meta a.call:hover{text-decoration:underline}
+
+/* ---------- Digital safety ---------- */
+.safe-box{display:grid;gap:20px;padding:26px}
+@media (min-width:880px){.safe-box{grid-template-columns:1.1fr 1fr;padding:36px;gap:40px}}
+.safe-box h3{font-size:24px;margin:14px 0 10px}
+.safe-box > div > p{color:var(--text-2)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:16px;color:var(--text-2)}
+.checks svg{margin-top:3px;color:var(--navy)}
+.checks strong{color:var(--text)}
+.kbd{display:inline-block;padding:1px 7px;border:1px solid var(--border-2);border-bottom-width:2px;border-radius:6px;font-size:13px;font-weight:600;background:var(--surface);color:var(--navy)}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq-item{overflow:hidden}
+.faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;cursor:pointer;font-weight:650;font-size:17px;color:var(--navy);border-radius:var(--radius);-webkit-tap-highlight-color:transparent}
+.faq-q:hover{background:rgba(23,36,58,.025)}
+.faq-q:focus-visible{box-shadow:inset 0 0 0 2px #1F5FBF}
+.faq-q .chev{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#EEF1F6;transition:transform .25s var(--ease),background .2s}
+.faq-q[aria-expanded="true"] .chev{transform:rotate(45deg);background:var(--navy);color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s var(--ease)}
+.faq-a > div{overflow:hidden}
+.faq-a .inner{padding:0 22px 22px;color:var(--text-2);font-size:16px}
+.faq-a .inner p + p{margin-top:10px}
+.faq-a a{color:var(--red);font-weight:700}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--navy);color:#C9D1DE;padding:56px 0 calc(28px + env(safe-area-inset-bottom));font-size:15px}
+.f-grid{display:grid;gap:32px;grid-template-columns:1fr}
+@media (min-width:820px){.f-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.footer .brand{color:#fff}
+.footer .brand-mark{background:rgba(255,255,255,.1)}
+.footer h4{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 14px}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer a{color:#fff;text-decoration:none}
+.footer a:hover{text-decoration:underline;text-underline-offset:3px}
+.footer .quote{font-size:20px;color:#fff;font-weight:600;letter-spacing:-.01em;margin:18px 0 10px}
+.footer .num{font-variant-numeric:tabular-nums;font-weight:700}
+.f-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:grid;gap:10px;font-size:14px;color:#9FB0C8}
+.f-bottom strong{color:#fff}
+
+/* ---------- Floating call (mobile) ---------- */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;padding:0 18px;height:54px;border-radius:27px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:17px;box-shadow:0 8px 24px rgba(198,40,40,.35);transform:translateY(90px);transition:transform .3s var(--ease),background .15s}
+.fab.show{transform:none}
+.fab:hover{background:var(--red-dark)}
+@media (min-width:920px){.fab{display:none}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+@media print{
+  .header,.mobile-nav,.fab,.alert,.exit-btn{display:none!important}
+  body{background:#fff}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Kalo te përmbajtja</a>
+
+<!-- Inline SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.5l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11v-6z"/></symbol>
+    <symbol id="i-siren" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18v-6a5 5 0 0 1 10 0v6"/><path d="M5 21h14v-3H5z"/><path d="M12 2v2M4.2 5.2l1.4 1.4M19.8 5.2l-1.4 1.4M2 12h1.5M20.5 12H22"/></g></symbol>
+    <symbol id="i-police" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11v-6z"/><path d="M12 8l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.8 2.6-.4z"/></g></symbol>
+    <symbol id="i-ambulance" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V7a1 1 0 0 1 1-1h10v11"/><path d="M14 10h4l3 3.5V17h-2"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/><path d="M9 17h6M8.5 8.5v4M6.5 10.5h4"/></g></symbol>
+    <symbol id="i-fire" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 22c4 0 7-2.8 7-6.8 0-3.2-2-5.7-3.6-7.4-.4 1.8-1.4 3-2.6 3.4C13 7.6 11.6 4.4 9 2.5c.2 3-1.6 5-3 6.8A8 8 0 0 0 5 15.2C5 19.2 8 22 12 22z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20.5s-8-4.6-8-10.6A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8 2.9c0 6-8 10.6-8 10.6z"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.9-2.3L2.7 16a2 2 0 0 1 2.8-2.9L7 14.6"/></g></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.6 1.5A4 4 0 0 0 4 13a4 4 0 0 0 3 5.5A3 3 0 0 0 12 19z"/><path d="M12 5a3 3 0 1 1 5.6 1.5A4 4 0 0 1 20 13a4 4 0 0 1-3 5.5A3 3 0 0 1 12 19z"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></g></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></g></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-4a2 2 0 0 0 0 4h4v2a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V6"/><path d="M21 13v4"/></g></symbol>
+    <symbol id="i-device" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/></g></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5l8-3 8 3v16"/><path d="M2 21h20M9 21v-4h6v4M8 8h.01M12 8h.01M16 8h.01M8 12h.01M12 12h.01M16 12h.01"/></g></symbol>
+    <symbol id="i-steth" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v5a5 5 0 0 0 10 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></g></symbol>
+    <symbol id="i-roof" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M12 20.5s-5-2.9-5-6.6A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1 5 1.9c0 3.7-5 6.6-5 6.6z"/></g></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16 9.6"/></g></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></g></symbol>
+    <symbol id="i-exit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5"/><path d="M15 16l4-4-4-4M19 12H9"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 6v12M6 12h12"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<header class="header" id="top">
+  <div class="wrap header-in">
+    <a href="#ballina" class="brand" aria-label="SAFE – kthehu në fillim">
+      <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" style="color:#fff"><use href="#i-shield"/></svg></span>
+      SAFE
+    </a>
+    <nav class="nav" aria-label="Navigimi kryesor">
+      <ul>
+        <li><a href="#ballina">Ballina</a></li>
+        <li><a href="#numrat">Numrat emergjentë</a></li>
+        <li><a href="#dhuna">Dhuna dhe mbrojtja</a></li>
+        <li><a href="#ndihme">Kërko ndihmë</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="btn exit-btn" data-exit aria-label="Dil shpejt nga kjo faqe dhe hap Google">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-exit"/></svg>Dil shpejt
+    </button>
+    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Hap menunë">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="bar b1" d="M3 5h14"/><path class="bar b2" d="M3 10h14"/><path class="bar b3" d="M3 15h14"/></g></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Navigimi në celular">
+  <ul>
+    <li><a href="#ballina">Ballina <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#numrat">Numrat emergjentë <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#dhuna">Dhuna dhe mbrojtja <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#ndihme">Kërko ndihmë <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#pyetje">Pyetje të shpeshta <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+  </ul>
+  <a class="btn btn-red" href="tel:112"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Telefono 112</a>
+</nav>
+
+<div class="alert" role="note">
+  <div class="wrap">
+    <span class="pulse" aria-hidden="true"></span>
+    <span>Nëse je në rrezik të menjëhershëm, telefono <a href="tel:112">112</a>.</span>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="ballina" aria-labelledby="hero-title">
+  <div class="wrap">
+    <span class="eyebrow"><svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg>Siguri dhe mbështetje · Kosovë</span>
+    <h1 id="hero-title">NUK JE<br><span>VETËM.</span></h1>
+    <p class="lead">Nëse ti apo dikush që njeh po përjeton dhunë, kërcënime apo një situatë emergjente, ndihma është më afër sesa mendon.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" href="#numrat"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Numrat e emergjencës</a>
+      <a class="btn btn-ghost" href="#ndihme">Si të kërkoj ndihmë?<svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="danger-note">
+      <svg width="22" height="22" aria-hidden="true" style="flex:none;color:var(--red)"><use href="#i-siren"/></svg>
+      <span>Nëse je në rrezik të menjëhershëm, telefono <a href="tel:112">112</a>.</span>
+    </p>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="alt" id="numrat" aria-labelledby="numrat-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Numrat emergjentë</span>
+      <h2 id="numrat-title">Një telefonatë mund të bëjë dallimin.</h2>
+      <p>Prek numrin ose butonin për të telefonuar direkt nga telefoni yt. Telefonatat drejt numrave të emergjencës zakonisht janë pa pagesë.</p>
+    </div>
+
+    <div class="em-grid">
+      <article class="card em em-primary reveal" aria-labelledby="em112">
+        <div class="em-top">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-siren"/></svg></span>
+          <span class="tag">Çdo emergjencë</span>
+        </div>
+        <div>
+          <a class="em-num" href="tel:112" aria-label="Telefono 112">112</a>
+          <h3 id="em112">Numri i përgjithshëm i emergjencës</h3>
+          <p>Për çdo situatë ku jeta, shëndeti ose siguria jote apo e dikujt tjetër është në rrezik. Nëse nuk e di cilin shërbim të thërrasësh, telefono 112.</p>
+        </div>
+        <a class="btn btn-red" href="tel:112"><svg width="20" height="20" aria-hidden="true"><use href="#i-phone"/></svg>Telefono tani</a>
+      </article>
+
+      <article class="card em reveal" aria-labelledby="em192">
+        <div class="em-top">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-police"/></svg></span>
+          <span class="tag">Policia</span>
+        </div>
+        <a class="em-num" href="tel:192" aria-label="Telefono 192">192</a>
+        <h3 id="em192">Policia e Kosovës</h3>
+        <p>Për raportim të dhunës, kërcënimeve, sulmeve apo çdo krimi që po ndodh ose ka ndodhur.</p>
+        <a class="btn btn-navy" href="tel:192"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Telefono tani</a>
+      </article>
+
+      <article class="card em reveal" aria-labelledby="em194">
+        <div class="em-top">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-ambulance"/></svg></span>
+          <span class="tag">Shëndeti</span>
+        </div>
+        <a class="em-num" href="tel:194" aria-label="Telefono 194">194</a>
+        <h3 id="em194">Ndihma e shpejtë / Ambulanca</h3>
+        <p>Për lëndime, gjendje të rëndë shëndetësore ose kur dikush ka nevojë urgjente për kujdes mjekësor.</p>
+        <a class="btn btn-navy" href="tel:194"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Telefono tani</a>
+      </article>
+
+      <article class="card em reveal" aria-labelledby="em193">
+        <div class="em-top">
+          <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-fire"/></svg></span>
+          <span class="tag">Zjarri</span>
+        </div>
+        <a class="em-num" href="tel:193" aria-label="Telefono 193">193</a>
+        <h3 id="em193">Zjarrfikësit</h3>
+        <p>Për zjarre, shpëtim nga objektet, aksidente dhe situata të tjera që kërkojnë ndërhyrje shpëtimi.</p>
+        <a class="btn btn-navy" href="tel:193"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Telefono tani</a>
+      </article>
+
+      <article class="card em em-support reveal" aria-labelledby="emsupport">
+        <div class="em-top">
+          <span class="ico red" aria-hidden="true"><svg width="22" height="22"><use href="#i-heart"/></svg></span>
+          <span class="tag">Mbështetje për viktimat</span>
+        </div>
+        <div>
+          <a class="em-num" href="tel:080011112" aria-label="Telefono 0800 11 112">0800 11 112</a>
+          <h3 id="emsupport">Linja për ndihmë dhe mbështetje për viktimat e dhunës</h3>
+          <p>Për të folur për dhunën që po përjeton, për të marrë informacion dhe për t'u udhëzuar drejt mbrojtjes dhe shërbimeve të mbështetjes.</p>
+        </div>
+        <a class="btn btn-red" href="tel:080011112"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>Telefono tani</a>
+      </article>
+    </div>
+
+    <p class="verify reveal">
+      <svg width="18" height="18" aria-hidden="true"><use href="#i-info"/></svg>
+      <span>Numrat 112, 192, 193 dhe 194 janë numrat publikë të emergjencës në Kosovë. Orari, operatori dhe kostoja e linjës 0800 11 112 duhet të konfirmohen me institucionet përgjegjëse. Nëse një linjë nuk përgjigjet, telefono <a href="tel:112"><strong>112</strong></a>.</span>
+    </p>
+  </div>
+</section>
+
+<!-- VIOLENCE -->
+<section id="dhuna" aria-labelledby="dhuna-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Dhuna dhe mbrojtja</span>
+      <h2 id="dhuna-title">Ta njohësh dhunën është hapi i parë.</h2>
+      <p>Dhuna nuk është gjithmonë e dukshme. Ajo mund të ketë shumë forma dhe shpesh disa prej tyre ndodhin njëkohësisht.</p>
+    </div>
+
+    <div class="v-grid">
+      <article class="card v reveal">
+        <span class="ico red" aria-hidden="true"><svg width="22" height="22"><use href="#i-hand"/></svg></span>
+        <h3>Dhuna fizike</h3>
+        <p>Sulme fizike, goditje, shtyrje, lëndime ose çdo përdorim i padëshiruar i forcës fizike.</p>
+      </article>
+      <article class="card v reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-brain"/></svg></span>
+        <h3>Dhuna psikologjike</h3>
+        <p>Kërcënime, frikësim, poshtërim, manipulim, izolim nga të afërmit dhe abuzim emocional.</p>
+      </article>
+      <article class="card v reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-home"/></svg></span>
+        <h3>Dhuna në familje</h3>
+        <p>Dhunë ose abuzim që ndodh mes anëtarëve të familjes ose mes partnerëve intimë, të tanishëm apo të mëparshëm.</p>
+      </article>
+      <article class="card v reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-ban"/></svg></span>
+        <h3>Dhuna seksuale</h3>
+        <p>Çdo akt, kontakt ose presion seksual pa pëlqim të dhënë lirisht. Heshtja apo frika nuk janë pëlqim.</p>
+      </article>
+      <article class="card v reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-wallet"/></svg></span>
+        <h3>Dhuna ekonomike</h3>
+        <p>Kontrolli i parave të dikujt, pengimi i qasjes në burime financiare ose bërja qëllimisht e tij/saj të varur financiarisht.</p>
+      </article>
+      <article class="card v reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-device"/></svg></span>
+        <h3>Dhuna digjitale</h3>
+        <p>Ngacmim në internet, ndjekje, kërcënime, shpërndarje e fotove private pa pëlqim ose kontroll i aktivitetit digjital të dikujt.</p>
+      </article>
+    </div>
+
+    <div class="callout reveal">
+      <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-heart"/></svg></span>
+      <div>
+        <h3>Dhuna nuk është kurrë faji yt.</h3>
+        <p>Asnjë sjellje, veshje, fjalë apo situatë nuk e justifikon dhunën. Përgjegjësia është gjithmonë e personit që ushtron dhunë. Kushdo që e përjeton dhunën meriton të dëgjohet, të besohet dhe të mbështetet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO SEEK HELP -->
+<section class="alt" id="ndihme" aria-labelledby="ndihme-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kërko ndihmë</span>
+      <h2 id="ndihme-title">Si të kërkoj ndihmë?</h2>
+      <p>Pesë hapa të thjeshtë. Nuk ka nevojë t'i bësh të gjitha menjëherë – fillo me atë që është e mundur për ty tani.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="card step reveal">
+        <span class="step-n" aria-hidden="true">1</span>
+        <div><h3>Jepi përparësi sigurisë sate</h3><p>Nëse je në rrezik të menjëhershëm, largohu në një vend më të sigurt nëse është e mundur – një dhomë me dalje, te fqinjët ose në një vend publik.</p></div>
+      </li>
+      <li class="card step reveal">
+        <span class="step-n" aria-hidden="true">2</span>
+        <div><h3>Kontakto shërbimet e emergjencës</h3><p>Telefono <a href="tel:112">112</a> ose shërbimin përkatës: Policia <a href="tel:192">192</a>, Ambulanca <a href="tel:194">194</a>, Zjarrfikësit <a href="tel:193">193</a>.</p></div>
+      </li>
+      <li class="card step reveal">
+        <span class="step-n" aria-hidden="true">3</span>
+        <div><h3>Kontakto dikë që i beson</h3><p>Fol me një anëtar të familjes, një shoqe apo shok, një mësues ose një person tjetër të sigurt. Mund të bini dakord edhe për një fjalë sinjal që tregon se ke nevojë për ndihmë.</p></div>
+      </li>
+      <li class="card step reveal">
+        <span class="step-n" aria-hidden="true">4</span>
+        <div><h3>Kërko mbështetje profesionale</h3><p>Kontakto linjën për viktimat e dhunës <a href="tel:080011112">0800 11 112</a>, shërbimet e mbrojtjes së viktimave ose institucionin kompetent. Shih seksionin <a href="#mbrojtje">Ndihmë dhe mbrojtje</a>.</p></div>
+      </li>
+      <li class="card step reveal">
+        <span class="step-n" aria-hidden="true">5</span>
+        <div><h3>Mos u përballo vetëm</h3><p>Ke të drejtë për mbrojtje, dinjitet dhe mbështetje. Kërkimi i ndihmës është shenjë force, jo dobësie.</p></div>
+      </li>
+    </ol>
+
+    <p class="disclaimer">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-info"/></svg>
+      <span>Këto janë rekomandime të përgjithshme sigurie. Ato nuk zëvendësojnë shërbimet e emergjencës, as këshillimin profesional apo juridik.</span>
+    </p>
+  </div>
+</section>
+
+<!-- SUPPORT & PROTECTION -->
+<section id="mbrojtje" aria-labelledby="mbrojtje-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Institucionet dhe shërbimet</span>
+      <h2 id="mbrojtje-title">NDIHMË DHE MBROJTJE</h2>
+      <p>Personat që përjetojnë dhunë mund të kërkojnë ndihmë nga disa institucione dhe shërbime. Mund t'i drejtohesh secilës prej tyre – nuk ka “derë të gabuar”.</p>
+    </div>
+
+    <div class="s-grid">
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-police"/></svg></span>
+        <h3>Policia e Kosovës</h3>
+        <p>Mund ta raportosh dhunën në çdo stacion policor ose me telefon. Policia mund të ndërhyjë për të të mbrojtur dhe të të udhëzojë për hapat e mëtejshëm, përfshirë mbrojtjen ligjore.</p>
+        <div class="meta">
+          <a class="call" href="tel:192">Telefono 192</a>
+          <a href="https://www.kosovopolice.com" target="_blank" rel="noopener noreferrer">kosovopolice.com</a>
+        </div>
+      </article>
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-scale"/></svg></span>
+        <h3>Mbrojtja dhe ndihma për viktimat</h3>
+        <p>Mbrojtësit e viktimave pranë prokurorisë ofrojnë informacion dhe shoqërim gjatë procedurave dhe ndihmojnë viktimat të njohin të drejtat e tyre.</p>
+        <div class="meta">
+          <a class="call" href="tel:080011112">Telefono 0800 11 112</a>
+          <a href="https://prokuroria-rks.org" target="_blank" rel="noopener noreferrer">prokuroria-rks.org</a>
+        </div>
+      </article>
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-building"/></svg></span>
+        <h3>Qendrat për Punë Sociale</h3>
+        <p>Qendrat për Punë Sociale në komunën tënde mund të ofrojnë mbështetje sociale, mbrojtje për fëmijët dhe ndërmjetësim drejt shërbimeve të tjera. Kontaktet merren pranë komunës përkatëse.</p>
+      </article>
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-steth"/></svg></span>
+        <h3>Profesionistët shëndetësorë</h3>
+        <p>Mjekët dhe infermierët mund të trajtojnë lëndimet, të dokumentojnë gjendjen tënde shëndetësore dhe të të udhëzojnë drejt mbështetjes. Në urgjencë telefono <a class="call" href="tel:194" style="color:var(--red);font-weight:700">194</a>.</p>
+      </article>
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-roof"/></svg></span>
+        <h3>Strehimoret dhe organizatat mbështetëse</h3>
+        <p>Në Kosovë veprojnë strehimore dhe organizata që ofrojnë strehim të sigurt dhe mbështetje. Për arsye sigurie, vendndodhja e tyre zakonisht nuk publikohet – qasja bëhet përmes policisë, mbrojtësve të viktimave ose Qendrave për Punë Sociale.</p>
+      </article>
+      <article class="card s reveal">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22"><use href="#i-users"/></svg></span>
+        <h3>Njerëzit e besuar</h3>
+        <p>Familja, shoqëria, mësuesit, psikologu i shkollës apo kolegët mund të jenë mbështetje e çmuar. Ata mund të të shoqërojnë kur kërkon ndihmë zyrtare.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL SAFETY / QUICK EXIT -->
+<section class="alt" id="siguria" aria-labelledby="siguria-title">
+  <div class="wrap">
+    <div class="card safe-box reveal">
+      <div>
+        <span class="ico red" aria-hidden="true"><svg width="22" height="22"><use href="#i-lock"/></svg></span>
+        <h3 id="siguria-title">Siguria jote digjitale</h3>
+        <p>Butoni <strong>“Dil shpejt”</strong> lart në faqe të largon menjëherë nga kjo faqe dhe të çon te Google. Mund të shtypësh edhe tastin <span class="kbd">Esc</span> dy herë radhazi në kompjuter.</p>
+        <button type="button" class="btn exit-btn" data-exit style="margin-top:20px;min-height:48px;padding:12px 20px;font-size:16px">
+          <svg width="18" height="18" aria-hidden="true"><use href="#i-exit"/></svg>Dil shpejt tani
+        </button>
+      </div>
+      <ul class="checks">
+        <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Dalja e shpejtë nuk e fshin historikun.</strong> Kjo faqe mund të mbetet në historikun e shfletuesit edhe pasi të largohesh.</span></li>
+        <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Përdor shfletimin privat</strong> (Incognito / Private) nëse është e mundur, ose fshi historikun pas vizitës.</span></li>
+        <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Nëse dikush e kontrollon pajisjen tënde,</strong> vizita në këtë faqe mund të lërë gjurmë. Nëse mundesh, përdor një telefon ose kompjuter të sigurt.</span></li>
+        <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Kjo faqe nuk mbledh të dhëna,</strong> nuk ka formularë dhe nuk kërkon regjistrim. Megjithatë, asnjë faqe interneti nuk mund të garantojë anonimitet të plotë.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="pyetje" aria-labelledby="pyetje-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pyetje të shpeshta</span>
+      <h2 id="pyetje-title">Përgjigje të qarta për pyetje të vështira.</h2>
+    </div>
+
+    <div class="faq">
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa1" id="fq1">Çfarë duhet të bëj nëse jam në rrezik?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><div class="inner">
+          <p>Telefono menjëherë <a href="tel:112">112</a> ose Policinë në <a href="tel:192">192</a>. Nëse mundesh, largohu në një vend më të sigurt – te fqinjët, në një vend publik ose në një dhomë me dalje.</p>
+          <p>Nëse nuk mund të flasësh lirshëm, qëndro në linjë nëse është e sigurt për ty dhe përpiqu t'i japësh operatorit vendndodhjen tënde.</p>
+        </div></div></div>
+      </div>
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa2" id="fq2">A mund të kërkoj ndihmë nëse nuk kam prova?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><div class="inner">
+          <p>Po. Nuk ke nevojë të kesh prova për të kërkuar ndihmë, për të folur me dikë apo për të raportuar dhunën. Hetimi i rastit është detyrë e institucioneve kompetente.</p>
+          <p>Nëse është e sigurt për ty, mund të ruash mesazhe, fotografi të lëndimeve, raporte mjekësore ose shënime me data – këto mund të ndihmojnë më vonë, por nuk janë kusht për të kërkuar ndihmë.</p>
+        </div></div></div>
+      </div>
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa3" id="fq3">A është dhuna vetëm fizike?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><div class="inner">
+          <p>Jo. Dhuna mund të jetë edhe psikologjike, seksuale, ekonomike ose digjitale. Kërcënimet, kontrolli, poshtërimi dhe izolimi janë po ashtu forma dhune që lënë pasoja serioze. Lexo më shumë te <a href="#dhuna">format e dhunës</a>.</p>
+        </div></div></div>
+      </div>
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa4" id="fq4">Ku mund të kërkoj mbrojtje?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><div class="inner">
+          <p>Mund t'i drejtohesh Policisë së Kosovës (<a href="tel:192">192</a>), mbrojtësve të viktimave, Qendrës për Punë Sociale në komunën tënde ose profesionistëve shëndetësorë. Këto institucione mund të të informojnë për mundësitë e mbrojtjes ligjore dhe për strehim të sigurt.</p>
+          <p>Për këshilla për rastin tënd konkret juridik, kërko ndihmë nga një jurist ose nga shërbimet e ndihmës juridike.</p>
+        </div></div></div>
+      </div>
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa5" id="fq5">Si mund ta ndihmoj një person që po përjeton dhunë?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><div><div class="inner">
+          <p>Dëgjoje pa e gjykuar dhe besoji. Thuaji se nuk është faji i saj/tij. Mos e detyro të marrë vendime – respekto ritmin dhe zgjedhjet e saj/tij, por ofroi informacion për numrat e ndihmës.</p>
+          <p>Nëse dikush është në rrezik të menjëhershëm, telefono <a href="tel:112">112</a>. Mos u vë vetë në rrezik duke u përballur me personin që ushtron dhunë.</p>
+        </div></div></div>
+      </div>
+      <div class="card faq-item reveal">
+        <h3 style="margin:0"><button type="button" class="faq-q" aria-expanded="false" aria-controls="fa6" id="fq6">A është kërkimi i ndihmës konfidencial?<span class="chev" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+        <div class="faq-a" id="fa6" role="region" aria-labelledby="fq6"><div><div class="inner">
+          <p>Shumë shërbime mbështetëse e trajtojnë informacionin tënd me kujdes, por rregullat e konfidencialitetit ndryshojnë nga një shërbim në tjetrin. Në disa raste – për shembull kur një fëmijë është në rrezik – profesionistët mund të jenë të detyruar ta raportojnë rastin.</p>
+          <p>Para se të ndash informacion, mund ta pyesësh drejtpërdrejt shërbimin se si do të përdoret dhe kush do ta shohë atë.</p>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" aria-labelledby="footer-title">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#ballina" class="brand" id="footer-title">
+          <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" style="color:#fff"><use href="#i-shield"/></svg></span>
+          SAFE
+        </a>
+        <p class="quote">“Askush nuk meriton të jetojë me frikë.”</p>
+        <p>SAFE – Platformë informative për siguri dhe mbështetje. Qëllimi i saj është ta bëjë informacionin për emergjencat dhe mbështetjen ndaj dhunës në Kosovë të qartë dhe të qasshëm për këdo.</p>
+      </div>
+      <div>
+        <h4>Numrat emergjentë</h4>
+        <ul>
+          <li><a href="tel:112"><span class="num">112</span> – Emergjenca</a></li>
+          <li><a href="tel:192"><span class="num">192</span> – Policia</a></li>
+          <li><a href="tel:194"><span class="num">194</span> – Ambulanca</a></li>
+          <li><a href="tel:193"><span class="num">193</span> – Zjarrfikësit</a></li>
+          <li><a href="tel:080011112"><span class="num">0800 11 112</span> – Viktimat e dhunës</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Burimet zyrtare</h4>
+        <ul>
+          <li><a href="https://www.kosovopolice.com" target="_blank" rel="noopener noreferrer">Policia e Kosovës</a></li>
+          <li><a href="https://prokuroria-rks.org" target="_blank" rel="noopener noreferrer">Prokuroria e Shtetit</a></li>
+        </ul>
+        <h4 style="margin-top:24px">Në këtë faqe</h4>
+        <ul>
+          <li><a href="#dhuna">Format e dhunës</a></li>
+          <li><a href="#ndihme">Si të kërkoj ndihmë</a></li>
+          <li><a href="#siguria">Siguria digjitale</a></li>
+          <li><a href="#pyetje">Pyetje të shpeshta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p><strong>Kjo faqe nuk është shërbim për reagim emergjent.</strong> Në emergjencë telefono <a href="tel:112">112</a>. Informacioni këtu është i përgjithshëm dhe nuk zëvendëson këshillimin profesional, mjekësor ose juridik.</p>
+      <p>SAFE nuk mbledh të dhëna personale, nuk përdor cookies dhe nuk kërkon regjistrim.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="tel:112" aria-label="Telefono 112, numrin e emergjencës"><svg width="20" height="20" aria-hidden="true"><use href="#i-phone"/></svg>112</a>
+
+<script>
+(function(){
+  'use strict';
+  document.body.classList.remove('no-js');
+
+  // Quick exit: replace current history entry and go to a neutral page.
+  var EXIT_URL = 'https://www.google.com';
+  function quickExit(){
+    try { document.body.style.display = 'none'; document.title = 'Google'; } catch(e){}
+    try { window.location.replace(EXIT_URL); } catch(e){ window.location.href = EXIT_URL; }
+  }
+  document.querySelectorAll('[data-exit]').forEach(function(b){ b.addEventListener('click', quickExit); });
+  var lastEsc = 0;
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    if (menuOpen()) { setMenu(false); menuBtn.focus(); return; }
+    var now = Date.now();
+    if (now - lastEsc < 600) quickExit();
+    lastEsc = now;
+  });
+
+  // Mobile nav
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  function menuOpen(){ return menuBtn.getAttribute('aria-expanded') === 'true'; }
+  function setMenu(open){
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Mbyll menunë' : 'Hap menunë');
+    mobileNav.classList.toggle('open', open);
+  }
+  menuBtn.addEventListener('click', function(){ setMenu(!menuOpen()); });
+  mobileNav.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', function(e){
+    if (menuOpen() && !mobileNav.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
+  });
+  window.addEventListener('resize', function(){ if (window.innerWidth >= 920 && menuOpen()) setMenu(false); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      btn.closest('.faq-item').classList.toggle('open', open);
+    });
+  });
+
+  // Header border + floating call button
+  var header = document.querySelector('.header');
+  var fab = document.querySelector('.fab');
+  var hero = document.getElementById('ballina');
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle('scrolled', y > 4);
+    fab.classList.toggle('show', y > hero.offsetHeight * 0.6);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Active nav link
+  var navLinks = document.querySelectorAll('.nav a');
+  var map = { ballina:'ballina', numrat:'numrat', dhuna:'dhuna', ndihme:'ndihme', mbrojtje:'ndihme', siguria:'ndihme', pyetje:'ndihme' };
+  if ('IntersectionObserver' in window) {
+    var secObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var key = map[en.target.id];
+        navLinks.forEach(function(a){
+          var on = a.getAttribute('href') === '#' + key;
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if (el) secObs.observe(el); });
+
+    // Reveal on scroll
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); revObs.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
